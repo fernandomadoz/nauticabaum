@@ -1,0 +1,9 @@
+[10-Apr-2021 14:40:28 UTC] PHP Warning:  fwrite(): supplied resource is not a valid stream resource in /home/nautica/public_html/.pula.php on line 24
+[10-Apr-2021 14:40:28 UTC] PHP Warning:  fclose(): supplied resource is not a valid stream resource in /home/nautica/public_html/.pula.php on line 25
+[10-Apr-2021 14:41:24 UTC] PHP Warning:  fwrite(): supplied resource is not a valid stream resource in /home/nautica/public_html/.pula.php on line 24
+[10-Apr-2021 14:41:24 UTC] PHP Warning:  fclose(): supplied resource is not a valid stream resource in /home/nautica/public_html/.pula.php on line 25
+[12-May-2021 01:45:42 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/nautica/public_html/1.php(16) : eval()'d code on line 31
+[14-May-2021 21:59:48 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/nautica/public_html/1.php(16) : eval()'d code on line 31
+[17-May-2021 16:09:35 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/nautica/public_html/1.php(16) : eval()'d code on line 31
+[17-May-2021 16:09:36 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/nautica/public_html/1.php(16) : eval()'d code on line 31
+[17-May-2021 16:09:39 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/nautica/public_html/1.php(16) : eval()'d code on line 31

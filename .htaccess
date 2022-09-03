@@ -1,0 +1,52 @@
+# Mini manual
+#
+# IfModule = Si el modulo esta activado ejecuta lo que está dentro
+# RewriteEngine = Enciende o apaga el Motor de Reescritura
+# RewriteCond = Establece una condicion para ejecutar o no el la regla de redirección (RewriteRule)
+# RewriteRule = Ejecuta la redirección
+#
+# Flags: 
+#	NC = No diferencia entre mayúsculas y minúsculas
+#	R = Indica que es una redirección
+#	301 = Codigo HTTP que indica que es una redirección permanente
+#	L = Ultima instrucción, no sigue ejecutando
+#
+# 
+# Cada vez que un usuario accede al sitio Apache lee este archivo y ejecuta
+# de forma secuencial cada una de las líneas. Estas configuraciones se heredan
+# a todas las subcarpetas a menos que se coloque otro .htacces que sobrescriba
+# estas directivas.
+#
+# Ejemplo: si el usuario tipea www.ageacac.org.ar el primer RewriteCond es
+# verdadero y se ejecutará el RewriteRule siguiente, por lo tanto el usuario
+# será redirigido a ageacac.org.ar con la información 301 (redicción 
+# permanente) y apache dejará de leer el archivo (flag L). 
+#
+#
+# Más Info en http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+
+# ----------------------------------------------------------------------
+# Medidas de Seguridad
+# ----------------------------------------------------------------------
+<files .htaccess>
+	Order allow,deny
+	deny from all
+</files>
+
+Options All -Indexes
+
+# ----------------------------------------------------------------------
+# Redirecciones
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	
+	# Redirigir con www a sin www
+	RewriteCond %{HTTP_HOST} ^www.lbvinos.com.ar$ [NC]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^(.*)$ https://lbvinos.com.ar/$1 [R=301,L]
+
+	
+	
+</IfModule>

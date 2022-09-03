@@ -1,0 +1,33 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?16ba2855daf89f7623816ffed3d083f7") format("truetype"),
+url("./flaticon.woff?16ba2855daf89f7623816ffed3d083f7") format("woff"),
+url("./flaticon.woff2?16ba2855daf89f7623816ffed3d083f7") format("woff2"),
+url("./flaticon.eot?16ba2855daf89f7623816ffed3d083f7#iefix") format("embedded-opentype"),
+url("./flaticon.svg?16ba2855daf89f7623816ffed3d083f7#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "glass-with-wine": "\f101",
+    "wine": "\f102",
+);
+
+.flaticon-glass-with-wine:before {
+    content: map-get($flaticon-map, "glass-with-wine");
+}
+.flaticon-wine:before {
+    content: map-get($flaticon-map, "wine");
+}
