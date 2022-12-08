@@ -45,7 +45,9 @@ class CartController extends Controller
         $Producto = Producto::find($producto_id);
 
 
-        $cant_pedido = Pedido::where('sesion_id', $sesion_id)->count();
+            
+        $cant_pedido = Pedido::where('sesion_id', $sesion_id)
+            ->whereRaw('(sino_pedido_procesado IS NULL or sino_pedido_procesado  = "NO")')->count();
         if ($cant_pedido > 0) {
             $Pedido = Pedido::where('sesion_id', $sesion_id)->get();            
             $carro_cant = Linea_de_pedido::where('pedido_id', $Pedido[0]->id)->count();
@@ -109,7 +111,7 @@ class CartController extends Controller
         ->with('User', $User);
     }
 
-
+    /*
     public function verNoticia($id)
     {   
 
@@ -187,5 +189,7 @@ class CartController extends Controller
 
         ->with('Seccion', $Seccion);
     }
+    
+    */
 
 }

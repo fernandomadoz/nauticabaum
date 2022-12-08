@@ -192,6 +192,7 @@ return [
 
 
 
+
     ],
 
     /*
@@ -248,6 +249,8 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'MercadoPago' => MercadoPago\SDK::class,
+        
         
         
         

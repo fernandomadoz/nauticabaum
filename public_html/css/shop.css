@@ -412,6 +412,7 @@ body {
     cursor: pointer;
 }
 
+
 .shop_btn_wrapper li a:hover {
     background: transparent;
     border: 2px solid #9200C9;
@@ -1861,6 +1862,14 @@ body {
     padding-bottom: 80px;
 }
 
+.cart_compra_wrapper {
+    float: left;
+    width: 100%;
+    margin-top: -80px;
+    padding-top: 0px;
+    padding-bottom: 80px;
+}
+
 .shop_cart_page_wrapper {
     float: left;
     width: 100%;
@@ -1944,7 +1953,7 @@ body {
 }
 
 .shop_car_btn_wrapper ul li a {
-    width: 220px;
+    width: 270px;
     height: 50px;
     line-height: 45px;
     margin-top: 15px;
@@ -2053,7 +2062,7 @@ body {
 }
 
 .shop_btn_wrapper_shipping ul li a {
-    width: 140px;
+    width: 2000px;
     height: 45px;
     line-height: 40px;
     margin-top: 20px;
@@ -2881,4 +2890,34 @@ body {
         margin-right: 0;
         width: 100%;
     }
+}
+
+.box_message_failure {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #c26161;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: black;
+}
+
+.box_message_pending {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #d9ff29;
+    color: black;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: black;
+}
+
+.box_message_success {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #268e00;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: black;
 }

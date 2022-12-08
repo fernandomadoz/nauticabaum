@@ -28,13 +28,19 @@ Route::group(['middleware' => 'sesion'], function () {
 	Route::get('/astillero', 'HomeController@astillero');
 	Route::get('/contacto', 'HomeController@contacto');
 
-
-
-	Route::get('/cart-list', 'HomeController@cartList');
-	Route::get('/enviar-pedido', 'HomeController@enviarPedido');
 	Route::get('/del-item/{id}', 'HomeController@delItem');
 	Route::post('/search', 'HomeController@resBusqueda');
 	Route::post('/additem', 'CartController@addItem');
+
+	Route::get('/cart-list', 'HomeController@cartList');
+	Route::get('/enviar-pedido', 'HomeController@enviarPedido');
+	Route::get('/datos-del-comprador', 'HomeController@datosDelComprador');	
+	Route::post('/guardar-datos-del-comprador', 'HomeController@guardarDatosDelComprador');
+	Route::get('/compra-mp-success', 'HomeController@compraMPSuccess');	
+	Route::get('/compra-mp-failure', 'HomeController@compraMPFailure');	
+	Route::get('/compra-mp-pending', 'HomeController@compraMPPending');	
+	
+
 
 });
 
