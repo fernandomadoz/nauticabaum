@@ -177,6 +177,21 @@ else {
             <li><a href="<?php echo env('PATH_PUBLIC')?>list/Seccion/0"><i class="fa fa-clone"></i> Secciones</a></li> 
           </ul>
         </li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-database"></i>
+            <span>Pedidos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu"> 
+            <li><a href="<?php echo env('PATH_PUBLIC')?>list/Pedido/9"><i class="fa fa-whatsapp"></i> Solicitados WhatsApp</a></li>  
+            <li><a href="<?php echo env('PATH_PUBLIC')?>list/Pedido/10"><i class="fa fa-check"></i> Aprobados</a></li>  
+            <li><a href="<?php echo env('PATH_PUBLIC')?>list/Pedido/11"><i class="fa fa-close"></i> Fallos</a></li>   
+            <li><a href="<?php echo env('PATH_PUBLIC')?>list/Pedido/12"><i class="fa fa-clock-o"></i> Pendientes</a></li>  
+          </ul>
+        </li>
         <?php } ?>
 
         <?php if (in_array($nivel_de_acceso, $permiso_administrador)) { ?>

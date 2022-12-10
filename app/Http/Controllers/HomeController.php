@@ -480,10 +480,11 @@ class HomeController extends Controller
     {   
 
         $sesion_id = Session()->get('sesion_id');
+        $Pedido = Pedido::where('sesion_id', $sesion_id)
+            ->whereRaw('(sino_pedido_procesado IS NULL or sino_pedido_procesado  = "NO")')->get();
         $cant_pedido = Pedido::where('sesion_id', $sesion_id)
             ->whereRaw('(sino_pedido_procesado IS NULL or sino_pedido_procesado  = "NO")')->count();
         if ($cant_pedido > 0) {
-            $Pedido = Pedido::where('sesion_id', $sesion_id)->get();
             $Lineas_de_pedido = Linea_de_pedido::where('pedido_id', $Pedido[0]->id)->get();
             $carro_cant = Linea_de_pedido::where('pedido_id', $Pedido[0]->id)->count();
             $carro_importe = 0;
@@ -744,7 +745,7 @@ class HomeController extends Controller
         $Pedido = Pedido::find($Lineas_de_pedido[0]->pedido_id);
         $Pedido->sino_pedido_procesado = 'NO';
         $Pedido->metodo_del_pago = 'Mercado Pago';
-        $Pedido->estado_del_pago = 'Fallo el Pago';
+        $Pedido->estado_del_pago = 'Fallo';
         $Pedido->collection_id = $request->collection_id;
         $Pedido->collection_status = $request->collection_status;
         $Pedido->payment_id = $request->payment_id;
@@ -797,7 +798,7 @@ class HomeController extends Controller
         $Pedido = Pedido::find($Lineas_de_pedido[0]->pedido_id);
         $Pedido->sino_pedido_procesado = 'SI';
         $Pedido->metodo_del_pago = 'Mercado Pago';
-        $Pedido->estado_del_pago = 'Pago Exitoso';
+        $Pedido->estado_del_pago = 'Aprobado';
         $Pedido->collection_id = $request->collection_id;
         $Pedido->collection_status = $request->collection_status;
         $Pedido->payment_id = $request->payment_id;
@@ -860,7 +861,7 @@ class HomeController extends Controller
         $Pedido = Pedido::find($Lineas_de_pedido[0]->pedido_id);
         $Pedido->sino_pedido_procesado = 'SI';
         $Pedido->metodo_del_pago = 'Mercado Pago';
-        $Pedido->estado_del_pago = 'Pago Pendiente';
+        $Pedido->estado_del_pago = 'Pendiente';
         $Pedido->collection_id = $request->collection_id;
         $Pedido->collection_status = $request->collection_status;
         $Pedido->payment_id = $request->payment_id;
@@ -904,4 +905,18 @@ class HomeController extends Controller
 
 
     }
+
+
+    public function verPedido($pedido_id)
+    {   
+        $Pedido = Pedido::find($pedido_id);
+        $Lineas_de_pedido = Linea_de_pedido::where('pedido_id', $pedido_id)->get();
+
+        return View('backend.ver-pedido')
+        ->with('Pedido', $Pedido)
+        ->with('Lineas_de_pedido', $Lineas_de_pedido);
+    }
+
+
+
 }

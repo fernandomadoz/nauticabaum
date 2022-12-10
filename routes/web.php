@@ -59,6 +59,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/list/{gen_modelo}/{gen_opcion}', 'GenericController@index');
 	// FIN RUTAS GENERICAS
 
+	Route::get('/list/Pedido/ver-pedido/{pedido_id}', 'HomeController@verPedido');
+	Route::get('/ver-pedido/{pedido_id}', 'HomeController@verPedido');
+
+
 
 });
 

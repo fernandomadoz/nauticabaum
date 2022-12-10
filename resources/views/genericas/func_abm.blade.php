@@ -103,7 +103,6 @@ background-color: white !important;
       'ref' => 'form'
       )) 
     !!}
-
       <div id="app-func-abm_<?php echo $random_id_table ?>">
         <vue-form-generator @validated="onValidated" :schema="schema" :model="model" :options="formOptions"></vue-form-generator>      
         <input type="hidden" name="gen_modelo" id="gen_modelo" value="<?php echo $gen_modelo ?>">
