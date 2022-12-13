@@ -5,6 +5,14 @@
 
     RewriteEngine On
 
+    # Redireccion http a https
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Redireccion www a non-www
+    RewriteCond %{HTTP_HOST} ^www.nauticabaum.com.ar 
+    RewriteRule (.*) https://nauticabaum.com.ar/$1 [R=301,L]
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]
@@ -17,9 +25,17 @@
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-
-    RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://lbvinos.com.ar/$1 [R,L]
-
 </IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php73” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^nauticabaum\.com\.ar$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.nauticabaum\.com\.ar$
+RewriteRule ^/?$ "https\:\/\/nauticabaum\.com\.ar\/" [R=301,L]
+
